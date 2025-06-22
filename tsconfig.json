@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext", // Enables ESM imports
+    "moduleResolution": "node",
+    "outDir": "dist", // Output directory after build
+    "rootDir": "", // Source files location
+    "strict": true,
+    "esModuleInterop": true, // Allow default imports from CommonJS
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "noImplicitAny": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
