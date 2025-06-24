@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "ESNext", // Enables ESM imports
+    "target": "esnext",
+
     "moduleResolution": "node",
-    "outDir": "dist", // Output directory after build
+    "outDir": "./dist", // Output directory after build
     "rootDir": "", // Source files location
     "strict": true,
     "esModuleInterop": true, // Allow default imports from CommonJS
@@ -16,6 +16,6 @@
     "esm": true,
     "experimentalSpecifierResolution": "node"
   },
-  "include": ["src"],
+  "include": ["app.ts"],
   "exclude": ["node_modules", "dist"]
 }

@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.ts",
-  "type": "module",
   "scripts": {
     "dev": "npx tsx app.ts",
-    "build": "tsc",
-    "start": "node dist/app.js"
+    "build": "ncc build app.ts -o dist",
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +20,7 @@
     "@types/express": "^5.0.2",
     "@types/node": "^22.15.30",
     "@types/socket.io": "^3.0.1",
+    "@vercel/ncc": "^0.38.3",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3"
   }
