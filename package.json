@@ -5,7 +5,9 @@
   "main": "app.ts",
   "type": "module",
   "scripts": {
-    "dev": "npx tsx app.ts"
+    "dev": "npx tsx app.ts",
+    "build": "tsc",
+    "start": "node dist/app.js"
   },
   "keywords": [],
   "author": "",
