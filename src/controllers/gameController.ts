@@ -12,23 +12,7 @@ export const startGame = (io: Server, room: Room) => {
   setTimeout(() => {
     room.gameStarted = true;
     room.deck = Shuffle(buildDeck());
-
-    room.discard = room.deck.splice(
-      room.deck.findIndex((itemd) =>
-        [
-          "one",
-          "three",
-          "four",
-          "five",
-          "six",
-          "seven",
-          "eight",
-          "nine",
-        ].includes(itemd.value)
-      ),
-      1
-    );
-
+    room.discard = room.deck.splice(0, 1);
     room.turn = 0;
     room.direction = "clockwise";
     // deal initial hands
@@ -40,6 +24,8 @@ export const startGame = (io: Server, room: Room) => {
     // io.to(room.id).emit("startGame",{room:room});
 
     console.log("GAME STARTED");
+    console.log(room.deck);
+    console.log(room.hands);
   }, 100);
 };
 
