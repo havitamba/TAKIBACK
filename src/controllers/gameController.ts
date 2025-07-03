@@ -95,6 +95,9 @@ export const playCard = (
   try {
     if (card === "draw") {
       handleDrawCard(room, socket.id);
+    } else if (card === "endTaki") {
+      room.openTaki = false;
+      executeCardEffect(room, room.discard![room.discard!.length - 1] as Card);
     } else {
       handlePlayCard(room, socket.id, card as Card);
     }
