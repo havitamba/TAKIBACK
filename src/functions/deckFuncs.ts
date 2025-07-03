@@ -16,6 +16,7 @@ export function buildDeck() {
     "reverse",
     "draw_two",
     "skip",
+    "taki",
   ];
   for (let color of colors) {
     for (let value of values) {

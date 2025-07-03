@@ -32,6 +32,7 @@ export interface Room {
   direction?: string;
   hands: { [key: string]: Card[] };
   combo: number;
+  openTaki: boolean;
 }
 export interface Card {
   color: string;

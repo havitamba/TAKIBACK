@@ -73,6 +73,47 @@ export const playCard = (
         room = iterateTurn(room);
         updateGame(io, room);
       }
+    } else if (room.openTaki) {
+      if (
+        (card as Card).color ===
+        (room.discard[room.discard.length - 1] as Card).color
+      ) {
+        play(room, socket.id, card as Card, false);
+      } else if ((card as Card).value === "change_color") {
+        play(room, socket.id, card as Card, true);
+        room.openTaki = false;
+        room = iterateTurn(room);
+      } else {
+        room.openTaki = false;
+        if (
+          (room.discard[room.discard.length - 1] as Card).value == "draw_two"
+        ) {
+          room.combo += 2;
+          room = iterateTurn(room);
+        } else if (
+          (room.discard[room.discard.length - 1] as Card).value == "reverse"
+        ) {
+          room.direction =
+            room.direction == "clockwise" ? "counterClockwise" : "clockwise";
+
+          room = iterateTurn(room);
+        } else if (
+          (room.discard[room.discard.length - 1] as Card).value == "skip"
+        ) {
+          room = iterateTurn(room);
+          room = iterateTurn(room);
+        } else if (
+          (room.discard[room.discard.length - 1] as Card).value == "plus"
+        ) {
+        } else {
+          room = iterateTurn(room);
+        }
+      }
+      updateGame(io, room);
+    } else if (matching && (card as Card).value == "taki") {
+      play(room, socket.id, card as Card, false);
+      updateGame(io, room);
+      room.openTaki = true;
     } else if (matching && (card as Card).value == "draw_two") {
       play(room, socket.id, card as Card, false);
       room.combo += 2;

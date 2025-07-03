@@ -57,6 +57,7 @@ export const createRoom = (
 
     hands: {},
     combo: 0,
+    openTaki: false,
   };
   rooms[roomId] = room;
   socket.join(roomId);
